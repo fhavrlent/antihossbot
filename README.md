@@ -1,0 +1,1 @@
+just `npm i` it, lol, idk, this code is trash made very quickly 
