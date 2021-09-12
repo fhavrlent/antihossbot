@@ -48,11 +48,12 @@ client.on('connected', () => {
   });
 
   const isBot = (userName) =>
-    bots.some((bot) => userName.includes(bot)) &&
-    !notBots.some((notBot) => userName === notBot);
+    bots.some((bot) => userName.includes(bot.toLowerCase())) &&
+    !notBots.some((notBot) => userName === notBot.toLowerCase());
 
   const isBotFollow = (subscription, event) =>
-    subscription?.type === 'channel.follow' && isBot(event.user_name);
+    subscription?.type === 'channel.follow' &&
+    isBot(event.user_name.toLowerCase());
 
   const banBot = (event) => client.say(channel, `/ban ${event.user_name}`);
 
