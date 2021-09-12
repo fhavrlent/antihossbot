@@ -7,6 +7,9 @@ const express = require('express');
 const crypto = require('crypto');
 const http = require('http');
 
+const notBots = require('./allowed.json');
+const bots = require('./bots.json');
+
 require('dotenv').config();
 
 const {
@@ -44,10 +47,12 @@ client.on('connected', () => {
     console.log('Server raised on', port);
   });
 
-  const isHossFollow = (subscription, event) =>
-    subscription?.type === 'channel.follow' &&
-    (event?.user_name.toLowerCase().startsWith('hoss') ||
-      event?.user_name.toLowerCase().startsWith('host'));
+  const isBot = (userName) =>
+    bots.some((bot) => userName.includes(bot)) &&
+    !notBots.some((notBot) => userName === notBot);
+
+  const isBotFollow = (subscription, event) =>
+    subscription?.type === 'channel.follow' && isBot(event.user_name);
 
   const banBot = (event) => client.say(channel, `/ban ${event.user_name}`);
 
@@ -119,7 +124,7 @@ client.on('connected', () => {
         req;
       const { subscription, event, challenge } = body;
 
-      if (isHossFollow(subscription, event)) banBot(event);
+      if (isBotFollow(subscription, event)) banBot(event);
 
       if (twitch_eventsub) {
         switch (headers['twitch-eventsub-message-type']) {
