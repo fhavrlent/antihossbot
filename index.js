@@ -84,8 +84,8 @@ client.on("connected", () => {
       const {subscription, event} = req.body
       if (subscription?.type === "channel.follow") {
         if (
-          event.user_name.toLowerCase().startsWith("hoss") ||
-          event.user_name.toLowerCase().startsWith("host")
+          event?.user_name.toLowerCase().startsWith("hoss") ||
+          event?.user_name.toLowerCase().startsWith("host")
         ) {
           client.say(channel, `/ban ${event.user_name}`);
         }
