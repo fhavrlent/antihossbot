@@ -2,6 +2,8 @@ most of the code was yonked, dont @ me
 
 To run this, you need working Node.js hosting with HTTPS enabled. Recommending free AWS EC2 tier, nginx as proxy and Let's Encrypt.
 
+This code checks if user's name contains any from the strings in the `bots.json`, but skips accounts that are in `allowed.json`. So `hoss00312` won't be banned, but any other username that contains that string will. 
+
 Register new application on Twitch
 
 Go to `https://twitchtokengenerator.com/`, select Bot Chat token, login.
