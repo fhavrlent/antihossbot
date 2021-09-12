@@ -1,6 +1,6 @@
 most of the code was yonked, dont @ me
 
-To run this, you need working Node.js hosting with HTTPS enabled.
+To run this, you need working Node.js hosting with HTTPS enabled. Recommending free AWS EC2 tier, nginx as proxy and Let's Encrypt.
 
 Register new application on Twitch
 
