@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "repository": {"url": "https://github.com/fhavrlent/antihossbot.git"},
+  "repository": {
+    "url": "https://github.com/fhavrlent/antihossbot.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
