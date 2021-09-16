@@ -125,8 +125,6 @@ client.on('connected', () => {
         req;
       const { subscription, event, challenge } = body;
 
-      if (isBotFollow(subscription, event)) banBot(event);
-
       if (twitch_eventsub) {
         switch (headers['twitch-eventsub-message-type']) {
           case 'webhook_callback_verification':
@@ -145,6 +143,7 @@ client.on('connected', () => {
           case 'notification':
             if (twitch_hex === twitch_signature) {
               console.log('The signature matched');
+              if (isBotFollow(subscription, event)) banBot(event);
               res.send('Ok');
               writeLogs(body, headers);
             } else {
