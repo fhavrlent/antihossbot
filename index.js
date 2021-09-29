@@ -47,7 +47,7 @@ server.listen(port, () => {
 });
 
 const isBot = (userName) =>
-  bots.some((bot) => userName.includes(bot.toLowerCase())) &&
+  bots.some((bot) => userName.startsWith(bot.toLowerCase())) &&
   !notBots.some((notBot) => userName === notBot.toLowerCase());
 
 const isBotFollow = (subscription, event) =>
