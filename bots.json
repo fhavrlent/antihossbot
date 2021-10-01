@@ -1,3 +1,13 @@
-[
-    "hoss00312", "host00312", "zachsapttv", "Maiawibloat", "pilotmikex", "h0ss00312", "hossoo312", "Gunz", "Gunk", "Gunz", "Gunp", "BLUEBERRYDOGS"
-]
+{
+  "startsWith": [
+    "zachsapttv",
+    "Maiawibloat",
+    "pilotmikex",
+    "Gunz",
+    "Gunk",
+    "Gunz",
+    "Gunp",
+    "BLUEBERRYDOGS"
+  ],
+  "includes": ["hoss00312", "host00312", "h0ss00312", "hossoo312"]
+}
